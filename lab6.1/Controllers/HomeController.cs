@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab6._1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,11 @@ namespace lab6._1.Controllers
 {
     public class HomeController : Controller
     {
+        UserContext db = new UserContext();
         public ActionResult Index()
         {
-            return View();
+            var firstUser = db.Users.FirstOrDefault();
+            return View(firstUser);
         }
 
         public ActionResult About()
